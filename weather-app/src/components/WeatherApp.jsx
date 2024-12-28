@@ -10,13 +10,13 @@ const WeatherApp = () => {
     const [data, setData] = useState({})
     const [location, setLocation] = useState('')
     const [loading, setLoading] = useState(false)
-    const api_key = '72242fd17bb5efe9b493842fa61299cf'
+    const appId = '72242fd17bb5efe9b493842fa61299cf'
 
     useEffect(() => {
         const fetchDefaultWeather = async() => {
             setLoading(true)
             const defaultLocation = 'Depok'
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultLocation}&units=Metric&appid=${api_key}`
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultLocation}&units=Metric&appid=${appId}`
             const res = await fetch(url)
             const defaultData = await res.json()
             setData(defaultData)
@@ -32,10 +32,10 @@ const WeatherApp = () => {
 
     const search = async() => {
         if(location.trim() !== '') {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${api_key}`
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${appId}`
             const res = await fetch(url)
             const searchData = await res.json()
-            if(searchData.cod !== '200') {
+            if(searchData.cod !== 200) {
                 setData({notFound: true})
             } else {             
                 setData(searchData)
