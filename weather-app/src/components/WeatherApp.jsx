@@ -4,13 +4,13 @@ import cloudy from '../assets/images/cloudy.png'
 import snowy from '../assets/images/snowy.png'
 import loadingGif from '../assets/images/loading.gif'
 import { useState, useEffect } from 'react'
-import { API_KEY } from '../../config';
+
 
 const WeatherApp = () => {
     const [data, setData] = useState({})
     const [location, setLocation] = useState('')
     const [loading, setLoading] = useState(false)
-    const api_key = API_KEY;
+    const api_key = '72242fd17bb5efe9b493842fa61299cf'
 
     useEffect(() => {
         const fetchDefaultWeather = async() => {

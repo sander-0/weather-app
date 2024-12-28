@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 
-config.js
 node_modules
 
 # Editor directories and files
